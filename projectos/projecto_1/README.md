@@ -140,3 +140,10 @@ Inserta el siguiente comando para forzar el inicio del servidor con `multipass`
 ````bash
 multipass start servidor
 ````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![multipass_start_server_cmd](assets/img/multipass_start_server_cmd.png)
+
+</details>
