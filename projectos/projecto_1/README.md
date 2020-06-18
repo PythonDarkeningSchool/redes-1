@@ -432,6 +432,9 @@ Ve a la seccion acorde al navegador que tengas instalado en tu sistema
 
 </details>
 
+# Autores
+
+- Humberto Israel Perez Rodriguez
 
 # Fuentes:
 - [How to install and configure squird proxy on ubuntu 18.04](https://linuxize.com/post/how-to-install-and-configure-squid-proxy-on-ubuntu-18-04/)
