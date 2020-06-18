@@ -1,6 +1,16 @@
 # Tabla de Contenidos
 
-
+- [Pre-requisitos](#pre-requisitos)
+    - [Multipass](#multipass)
+- [Instalando la maquina virtual](#instalando-la-maquina-virtual)
+    - [Creando el servidor](#creando-el-servidor)
+    - [Instalando paquetes en el servidor](#instalando-paquetes-en-el-servidor)
+    - [Configurando Squid en el servidor](#configurando-squid-en-el-servidor)
+    - [Habilitando el firewall](#habilitando-el-firewall)
+- [Configurando tu navegador para usar proxy](#configurando-tu-navegador-para-usar-proxy)
+    - [Firefox](#firefox)
+- [Autores](#autores)
+- [Fuentes](#fuentes)
 
 # Pre-requisitos
 
@@ -61,7 +71,6 @@ multipass launch bionic --name servidor
   ![multipass_launch_cmd](assets/img/multipass_launch_cmd.png)
 
 </details>
-
 
 ## Instalando paquetes en el servidor
 
@@ -379,7 +388,6 @@ sudo ufw status
 </details>
 
 > Nota: si no tienes habilitado `Squid` en el firewall de Ubuntu no podras continuar hasta que lo habilites!
-
 
 # Configurando tu navegador para usar proxy
 
