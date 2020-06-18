@@ -147,3 +147,161 @@ multipass start servidor
   ![multipass_start_server_cmd](assets/img/multipass_start_server_cmd.png)
 
 </details>
+
+## Configurando Squid en el servidor
+
+Primeramente hay que entrar al servidor con el siguiente comando:
+
+````bash
+multipass shell servidor
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![multipass_shell_cmd](assets/img/multipass_shell_cmd.png)
+
+</details>
+
+Una vez dentro procedermos a escribir el siguiete comando en terminal para ver el estado del servidor proxy `Squid`
+
+````bash
+sudo systemctl status squid
+````
+
+> Es muy importante que la salida del comando anterior sea algo muy similar a la imagen de abajo, de lo contrario no
+> podras proseguir con los pasos siguientes.
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![squid_status](assets/img/squid_status.png)
+
+</details>
+
+
+Escribe el siguiente comando para copiar el archivo original de configuracion de `Squid`, en pocas palabras hacer un
+respaldo
+
+````bash
+sudo cp /etc/squid/squid.conf{,.orginal}
+````
+
+### Configurando la Autenticacion
+
+Squid cuenta con varios metodos de autenticacion, a continuacion configuraremos el tipo de autenticacion basica que
+consta de un usuario y un password
+
+
+Escribiremos el siguiente comando en la terminal, el cual creara un usuario llamado `test` con un password `123` que
+estara encriptado en el archivo `/etc/squid/htpasswd`
+
+````bash
+printf "test:$(openssl passwd -crypt '123')\n" | sudo tee -a /etc/squid/htpasswd
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![create_user_cmd](assets/img/create_user_cmd.png)
+
+</details>
+
+Ahora procederemos a buscar la linea en la cual esta ubicada el siguiente parrafo `#http_access allow localnet`
+en el archivo de configuracion de `Squid` ubicado en `/etc/squid/squid.conf`
+
+````bash
+cat -n /etc/squid/squid.conf | grep "#http_access allow localnet"
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![linea_buscar_cmd](assets/img/linea_buscar_cmd.png)
+
+</details>
+
+
+Teniendo en cuenta la linea del comando anterior, abrimos el archivo de configuracion `/etc/squid/squid.conf` con el
+editor `vim` y buscaremos esa linea en particular
+
+````bash
+sudo vim /etc/squid/squid.conf
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![linea_en_vim_cmd](assets/img/linea_en_vim_cmd.png)
+
+</details>
+
+
+Teniendo el archivo abierto insertaremos las siguientes lineas de codigo inmediatamente debajo del texto `# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`
+
+````text
+acl web_prohibidas dstdomain "/etc/squid/web_prohibidas.txt"
+acl palabras_prohibidas url_regex "/etc/squid/palabras_prohibidas.txt"
+auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid/htpasswd
+auth_param basic realm proxy
+acl authenticated proxy_auth REQUIRED
+````
+
+De igual manera inmediatamente despues del texto `http_access allow localhost` insertamos las siguientes lineas
+
+````text
+http_access deny web_prohibidas
+http_access deny palabras_prohibidas
+http_access allow authenticated
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![squid_modified_file](assets/img/squid_modified_file.png)
+
+</details>
+
+> Nota: el orden es muy importante, de manera contrario no funcionara el servidor proxy adecuadamente!
+
+
+Ahora crearemos los archivos `web_prohibidas.txt` y `palabras_prohibidas.txt` que como su nombre lo infiere, aqui
+se pondran todas aquellas webs a las que no queremos que los usuarios tengan acceso asi mismo como palabras especificas
+para bloquear sitios indeseados.
+
+
+Ejemplo para bloquear `facebook.com` y `youtube.com`
+
+````bash
+echo -ne ".facebook.com\n.youtube.com\n" | sudo tee /etc/squid/web_prohibidas.txt
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![web_prohibidas_archivo](assets/img/web_prohibidas_archivo.png)
+
+</details>
+
+
+> Nota: los sitios a bloquear deben empezar con un punto al principio
+
+
+Ejemplo para bloquear palabras claves en las URLs:
+
+````bash
+echo -ne "play\nsteam\n" | sudo tee /etc/squid/palabras_prohibidas.txt
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![palabras_prohibidas_archivo](assets/img/palabras_prohibidas_archivo.png)
+
+</details>
+
+
+
+# Fuentes:
+- [How to install and configure squird proxy on ubuntu 18.04](https://linuxize.com/post/how-to-install-and-configure-squid-proxy-on-ubuntu-18-04/)
+- [Instalación y configuración básica de Squid en Ubuntu 18.04](https://www.youtube.com/watch?v=vj00RVHGxFg)
