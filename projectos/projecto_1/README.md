@@ -301,6 +301,137 @@ echo -ne "play\nsteam\n" | sudo tee /etc/squid/palabras_prohibidas.txt
 </details>
 
 
+Ahora procederemos a reiniciar el servicio de `Squid` para que nuestros cambios realizados tomen efecto inmediato
+
+````bash
+sudo systemctl restart squid
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![restart_squid_cmd](assets/img/restart_squid_cmd.png)
+
+</details>
+
+> Nota: este comando puede tardar un poco
+
+Y para corroborar que todos nuestros cambios surtieron el efecto deseado, insertaremos el siguiente comando
+
+````bash
+sudo systemctl status squid
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![squid_status](assets/img/squid_status.png)
+
+</details>
+
+> Nota: si la salida del comando anterior no es igual a la imagen, significa que algo tienes mal en la configuracion
+> y no podras avanzar hasta que lo resuelvas
+
+## Habilitando el firewall
+
+Por defecto el firewall de Ubuntu viene deshabilitado, lo tendremos que habilitar para que trabaje en conjunto con
+nuestro servidor proxy `Squid`
+
+
+Insertamos el siguiente comando para habilitar el firewall
+
+````bash
+sudo ufw enable
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![enable_firewall_cmd](assets/img/enable_firewall_cmd.png)
+
+</details>
+
+
+Insertamos el siguiente comando para permitir el uso de `Squid` en el firewall
+
+````bash
+sudo ufw allow 'Squid'
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![enable_squid_firewall](assets/img/enable_squid_firewall.png)
+
+</details>
+
+Insertamos el siguiente comando para ver si `Squid` fue correctamente habilitado
+
+````bash
+sudo ufw status
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![squid_status_firewall](assets/img/squid_status_firewall.png)
+
+</details>
+
+> Nota: si no tienes habilitado `Squid` en el firewall de Ubuntu no podras continuar hasta que lo habilites!
+
+
+# Configurando tu navegador para usar proxy
+
+En este punto `Squid` esta funcionado y solo queda configurar nuestro navegador para usar el servidor proxy,
+
+Como pre-requisito tendras que descubrir cual es la ip del servidor con el siguiete comando
+
+````bash
+multipass ls
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![multipass_ip_cmd](assets/img/multipass_ip_cmd.png)
+
+</details>
+
+> Nota: la ip del servidor la necesitaremos para configurarlas en los navegadores
+
+
+Ve a la seccion acorde al navegador que tengas instalado en tu sistema
+
+
+## Firefox
+
+<details>
+  <summary>Click aqui para ver la configuracion de Firefox</summary>
+  
+  1. Abrir las preferencias de `Firefox` como se muestra en la imagen a continuacion
+  
+  ![firefox_preferences](assets/img/firefox_preferences.png)
+  
+  2. En el buscador insertar la palabra `proxy` y hacer click en la opcion de `Settings...`
+  
+  ![firefox_search_proxy](assets/img/firefox_search_proxy.png)
+  
+  3. Selecciona "Manual proxy configuration" y pon la ip del servidor proxy (`Squid`) asi como el puerto como se muestra a continuacion
+  
+  ![proxy_settings_firefox](assets/img/proxy_settings_firefox.png)
+  
+  4. Abre una nueva pestaña de firefox y notaras que te pedira credenciales, inserta las credenciales creadas anteriomente (User Name = test) (Password = 123)
+  
+  ![firefox_auth](assets/img/firefox_auth.png)
+  
+  5. Trata de acceder a las web prohibidas o inserta una palabra prohibida para verificar el funcionamiento del servidor proxy
+  
+  ![facebook_refuse_connection](assets/img/facebook_refuse_connection.png)
+  
+
+</details>
+
 
 # Fuentes:
 - [How to install and configure squird proxy on ubuntu 18.04](https://linuxize.com/post/how-to-install-and-configure-squid-proxy-on-ubuntu-18-04/)
