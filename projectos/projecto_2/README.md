@@ -174,8 +174,41 @@ sudo service smbd restart
 </details>  
 
 
+4 - Establecer una contraseña para conectarse con el servidor
+
+````bash
+sudo smbpasswd -a ubuntu
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![contrasena](assets/img/contrasena.png)
+  
+</details>  
 
 </details>
+
+# Conectando con el servidor Samba
+
+1 - Primeramente se tiene que obtener la direccion ip del servidor
+
+````bash
+multipass ls
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![ip](assets/img/ip.png)
+
+</details>
+
+2- Abrir una ventana del explorador de Windows y escribir lo siguiente
+
+````text
+\\ip-address\sambashare
+````
 
 
 # Autores
