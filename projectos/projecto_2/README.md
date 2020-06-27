@@ -122,11 +122,25 @@ sudo apt install samba -y
 mkdir /home/ubuntu/sambashare/
 ````
 
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![mkdir](assets/img/mkdir.png)
+  
+</details>  
+
 2 - Editar el siguiente archivo de configuracion de samba
 
 ````bash
 sudo vim /etc/samba/smb.conf
 ````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![smb.conf](assets/img/smb.conf.png)
+  
+</details>  
 
 agregar al final del archivo las siguientes lineas:
 
@@ -138,11 +152,28 @@ agregar al final del archivo las siguientes lineas:
     browsable = yes
 ````
 
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![lines](assets/img/lines.png)
+  
+</details>  
+
+
 3 - Reiniciar el servidor de Samba para que tengan efectos los cambios hechos
 
 ````bash
 sudo service smbd restart
 ````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![restart_samba](assets/img/restart_samba.png)
+  
+</details>  
+
+
 
 </details>
 
