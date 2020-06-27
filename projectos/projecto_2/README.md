@@ -6,6 +6,9 @@
 - [Instalando la maquina virtual](#instalando-la-maquina-virtual)
     - [Creando el servidor](#creando-el-servidor)
     - [Instalando paquetes en el servidor](#instalando-paquetes-en-el-servidor)
+    - [Instalando samba en el servidor](#instalando-samba-en-el-servidor)
+    - [Configurando samba en el servidor](#configurando-samba-en-el-servidor)
+- [Autores](#autores)
     
     
     
@@ -101,3 +104,43 @@ sudo apt update -y && sudo apt upgrade -y
   ![apt_update](assets/img/apt_update.png)
 
 </details>
+
+## Instalando samba en el servidor
+
+````bash
+sudo apt install samba -y
+````
+
+## Configurando samba en el servidor
+
+1 - Crear una carpeta para alojar los archivos compartidos de samba 
+
+````bash
+mkdir /home/ubuntu/sambashare/
+````
+
+2 - Editar el siguiente archivo de configuracion de samba
+
+````bash
+sudo vim /etc/samba/smb.conf
+````
+
+agregar al final del archivo las siguientes lineas:
+
+````text
+[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/ubuntu/sambashare
+    read only = no
+    browsable = yes
+````
+
+3 - Reiniciar el servidor de Samba para que tengan efectos los cambios hechos
+
+````bash
+sudo service smbd restart
+````
+
+# Autores
+
+- Humberto Israel Perez Rodriguez
