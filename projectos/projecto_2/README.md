@@ -68,7 +68,7 @@ multipass launch bionic --name servidor-samba
 <details>
   <summary>Click aqui para ver la salida del comando anterior</summary>
   
-  ![launch_server](assets/img/launch_server.png)
+  ![launch_server_2](assets/img/launch_server_2.png)
 
 </details>
 
