@@ -80,13 +80,13 @@ que estar dentro del servidor antes de poder instalar cualquier paquete.
 Inserta el siguiente comando en la terminal para poder entrar al servidor
 
 ````bash
-multipass shell servidor
+multipass shell servidor-samba
 ````
 
 <details>
   <summary>Click aqui para ver la salida del comando anterior</summary>
   
-  ![multipass_shell_cmd](assets/img/multipass_shell_cmd.png)
+  ![enter_server](assets/img/enter_server.png)
 
 </details>
 
