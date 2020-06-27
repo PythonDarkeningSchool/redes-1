@@ -210,6 +210,15 @@ multipass ls
 \\ip-address\sambashare
 ````
 
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![conexion_windows](assets/img/conexion_windows.png)
+  
+  ![enter_samba_folder](assets/img/enter_samba_folder.png)
+
+</details>
+
 
 # Autores
 
