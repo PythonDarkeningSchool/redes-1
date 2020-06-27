@@ -113,6 +113,9 @@ sudo apt install samba -y
 
 ## Configurando samba en el servidor
 
+<details>
+  <summary>Click aqui para ver la configuracion de samba en el servidor</summary>
+
 1 - Crear una carpeta para alojar los archivos compartidos de samba 
 
 ````bash
@@ -140,6 +143,9 @@ agregar al final del archivo las siguientes lineas:
 ````bash
 sudo service smbd restart
 ````
+
+</details>
+
 
 # Autores
 
