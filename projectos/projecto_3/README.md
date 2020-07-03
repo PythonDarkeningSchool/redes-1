@@ -13,9 +13,9 @@
 
 # Amazon EC2 Configuracion
 
-Custom TCP rule - TCP 20-21 (anywhere)
-Custom TCP rule - TCP 1024-1048 (anywhere)
-HTTP - (anywhere)
+- Custom TCP rule - TCP 20-21 (anywhere)
+- Custom TCP rule - TCP 1024-1048 (anywhere)
+- HTTP - (anywhere)
 
 
 # Conectandose al servidor
