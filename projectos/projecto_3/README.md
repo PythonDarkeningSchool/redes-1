@@ -9,6 +9,7 @@
     - [Permitir que Filezilla suba archivos al servidor](#permitir-que-filezilla-suba-archivos-al-servidor)
     - [Paso adicional (cambiando el directorio por default del usuario ftpuser)](#paso-adicional-cambiando-el-directorio-por-default-del-usuario-ftpuser)
 - [Subiendo archivos al servidor con Filezilla](#subiendo-archivos-al-servidor-con-filezilla)
+- [Autores](#autores)
 
 # Conectandose al servidor
 
@@ -244,3 +245,8 @@ pantalla de FileZilla
   ![filezilla_3](aassets/img/filezilla_3.png) 
   
 </details>
+
+
+# Autores
+
+- Humberto Israel Perez Rodriguez
