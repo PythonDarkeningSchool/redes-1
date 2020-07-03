@@ -11,6 +11,13 @@
 - [Subiendo archivos al servidor con Filezilla](#subiendo-archivos-al-servidor-con-filezilla)
 - [Autores](#autores)
 
+# Amazon EC2 Configuracion
+
+Custom TCP rule - TCP 20-21 (anywhere)
+Custom TCP rule - TCP 1024-1048 (anywhere)
+HTTP - (anywhere)
+
+
 # Conectandose al servidor
 
 Para todos los comandos posteriores tienes que estar dentro del servidor para poder ejecutarlos
