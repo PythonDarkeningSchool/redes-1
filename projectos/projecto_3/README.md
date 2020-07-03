@@ -192,3 +192,39 @@ sudo service vsftpd restart
   ![restart_ftp_service](aassets/img/restart_ftp_service.png)
   
 </details>
+
+# Subiendo archivos al servidor con Filezilla
+
+1 - Abrimos filezilla e insertamos las siguientes credenciales
+
+````text
+Host: <IP_SERVIDOR>
+Username: ftpuser
+Password: 123
+````
+
+> Nota: cambiar "<IP_SERVIDOR>" por la ip del servidor a conectarse
+
+
+<details>
+  <summary>Click aqui para ver un ejemplo</summary> 
+    
+  1 - Aparecera la siguiente ventana, solo da click en el boton de "OK"
+  
+  ![filezilla_1](aassets/img/filezilla_1.png)
+  
+  2 - Aparecera la siguiente ventana, solo da click en el boton de "OK"
+  
+  ![filezilla_2](aassets/img/filezilla_2.png) 
+  
+</details>
+
+2 - Si las credenciales son correctas, podras transferir archivos al servidor arrastrandolos hacia la parte derecha de la
+pantalla de FileZilla
+
+<details>
+  <summary>Click aqui para ver un ejemplo</summary> 
+   
+  ![filezilla_3](aassets/img/filezilla_3.png) 
+  
+</details>
