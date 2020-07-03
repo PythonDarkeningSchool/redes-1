@@ -148,7 +148,7 @@ sudo service vsftpd restart
 
 ## Permitir que Filezilla suba archivos al servidor
 
-Inserta los siguientes comandos en la terminal
+1 - Inserta los siguientes comandos en la terminal
 
 ````bash
 echo 'allow_writeable_chroot=YES' | sudo tee -a /etc/vsftpd.conf
@@ -161,6 +161,21 @@ sudo sed -i 's|#write_enable=YES|write_enable=YES|g' /etc/vsftpd.conf
   ![allow_filezilla](aassets/img/allow_filezilla.png)
   
 </details>
+
+
+2 - Reiniciamos el servicio de FTP
+
+````bash
+sudo service vsftpd restart
+````
+
+<details>
+  <summary>Click aqui para ver la salida del comando anterior</summary>
+  
+  ![restart_ftp_service](aassets/img/restart_ftp_service.png)
+  
+</details>
+
 
 ## Paso adicional (cambiando el directorio por default del usuario ftpuser)
 
