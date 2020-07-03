@@ -1,5 +1,13 @@
 # Tabla de Contenidos
 
+- [Conectandose al servidor](#conectandose-al-servidor)
+    - [Actualizando paquetes del servidor](#actualizando-paquetes-del-servidor)
+    - [Instalando paquetes para el servicio FTP](#instalando-paquetes-para-el-servicio-ftp)
+    - [Editando el archivo de configuracion de FTP](#editando-el-archivo-de-configuracion-de-ftp)
+    - [Agregando un usuario al servicio FTP](#agregando-un-usuario-al-servicio-ftp)
+    - [Restringiendo el directorio de FTP](#restringiendo-el-directorio-de-ftp)
+    - [Permitir que Filezilla suba archivos al servidor](#permitir-que-filezilla-suba-archivos-al-servidor)
+    - [Paso adicional (cambiando el directorio por default del usuario ftpuser)](#paso-adicional-cambiando-el-directorio-por-default-del-usuario-ftpuser)
 
 # Conectandose al servidor
 
@@ -87,7 +95,6 @@ sudo service vsftpd restart
   
 </details>
 
-
 ## Agregando un usuario al servicio FTP
 
 ````bash
@@ -137,7 +144,6 @@ sudo service vsftpd restart
   ![restart_ftp_service](aassets/img/restart_ftp_service.png)
   
 </details>
-
 
 ## Permitir que Filezilla suba archivos al servidor
 
