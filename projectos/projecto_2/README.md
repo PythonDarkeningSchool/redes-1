@@ -11,7 +11,20 @@
 - [Autores](#autores)
     
     
-    
+
+# Amazon Configuracion
+
+| Type            | Protocol | Port Range | Source   |
+|-----------------|----------|------------|----------|
+| SSH             | TCP      | 22         | Anywhere |
+| All ICPM - IPv4 | ICMP     | 0-65535    | Anywhere |
+| All TCP         | TCP      | 0-65535    | Anywhere |
+| All UDP         | UDP      | 0-65535    | Anywhere |
+| All traffic     | All      | 0-65535    | Anywhere |
+| SMTP            | TCP      | 25         | Anywhere |
+| SMB             | TCP      | 445        | Anywhere |
+| SMTPS           | TCP      | 465        | Anywhere |
+
 # Pre-requisitos
 
 <details>
